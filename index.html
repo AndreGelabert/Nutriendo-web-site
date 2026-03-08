@@ -177,8 +177,10 @@
                 <div class="hidden md:flex items-center space-x-6">
                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#inicio">Inicio</a>
                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#nosotros">Nosotros</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#pastas">Pastas</a>
                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#productos">Productos</a>
-                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#blog">Blog</a>
+                    <!-- <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#blog">Blog</a> -->
+                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#opiniones">Reseñas</a>
                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#contacto">Contacto</a>
                     <div class="theme-toggle-wrapper">
                         <div class="theme-toggle-label" onclick="toggleTheme()" aria-label="Cambiar modo de color" role="button" tabindex="0">
@@ -200,13 +202,15 @@
             </div>
         </div>
     </nav>
-    <!-- Mobile Menu (fuera del nav para estilos correctos) -->
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden fixed top-16 left-0 right-0 z-40 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-border-dark rounded-b-2xl shadow-lg">
         <div class="px-4 py-4 space-y-2">
             <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
             <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#nosotros" onclick="toggleMobileMenu()">Nosotros</a>
+            <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#pastas" onclick="toggleMobileMenu()">Pastas</a>
             <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#productos" onclick="toggleMobileMenu()">Productos</a>
-            <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#blog" onclick="toggleMobileMenu()">Blog</a>
+            <!-- <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#blog" onclick="toggleMobileMenu()">Blog</a> -->
+             <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#opiniones" onclick="toggleMobileMenu()">Reseñas</a>
             <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
         </div>
     </div>
@@ -419,7 +423,7 @@
             </div>
         </div>
     </section>
-    <section class="py-20 bg-white dark:bg-card-dark transition-colors duration-300" id="blog">
+    <!-- <section class="py-20 bg-white dark:bg-card-dark transition-colors duration-300" id="blog">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-text-dark transition-colors duration-300">Tu Bienestar</h2>
@@ -452,8 +456,8 @@
                 </article>
             </div>
         </div>
-    </section>
-    <section class="py-20 bg-primary/5 dark:bg-card-dark border-y border-gray-100 dark:border-border-dark transition-colors duration-300">
+    </section> -->
+    <section class="py-20 bg-primary/5 dark:bg-card-dark border-y border-gray-100 dark:border-border-dark transition-colors duration-300" id="opiniones">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-center text-3xl font-display font-bold text-gray-900 dark:text-text-dark mb-12 transition-colors duration-300">Lo que dicen nuestros clientes</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
