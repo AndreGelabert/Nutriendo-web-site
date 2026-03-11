@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="Resources/img/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="Resources/img/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="Resources/img/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="Resources/img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="Resources/img/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="Resources/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="Resources/img/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Resources/img/favicon-16x16.png">
@@ -137,35 +137,30 @@
             color: #fbbf24;
             margin-right: 4px;
         }
+
+        /* Pasta Carousel Dots */
+        .pasta-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            background: transparent;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.3s, border-color 0.3s, transform 0.3s;
+        }
+
+            .pasta-dot:hover {
+                background: rgba(255, 255, 255, 0.5);
+                transform: scale(1.2);
+            }
+
+            .pasta-dot.active {
+                background: #F58220;
+                border-color: #F58220;
+                transform: scale(1.2);
+            }
     </style>
-    <script>
-        // Simple script to handle theme toggle manually since user requested no external JS libs other than Tailwind
-        function toggleTheme() {
-            const html = document.documentElement;
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Initialize theme on load
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        });
-    </script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-body antialiased transition-colors duration-300">
     <nav class="fixed w-full z-50 bg-background-light/90 dark:bg-background-dark/95 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-border-dark transition-colors duration-300">
@@ -178,9 +173,9 @@
                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#inicio">Inicio</a>
                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#nosotros">Nosotros</a>
                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#pastas">Pastas</a>
-                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#productos">Productos</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#productos">Servicios</a>
                     <!-- <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#blog">Blog</a> -->
-                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#opiniones">Reseñas</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#opiniones">Reseñas</a>
                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-2 py-2 rounded-md text-sm font-medium transition-colors" href="#contacto">Contacto</a>
                     <div class="theme-toggle-wrapper">
                         <div class="theme-toggle-label" onclick="toggleTheme()" aria-label="Cambiar modo de color" role="button" tabindex="0">
@@ -208,9 +203,9 @@
             <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
             <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#nosotros" onclick="toggleMobileMenu()">Nosotros</a>
             <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#pastas" onclick="toggleMobileMenu()">Pastas</a>
-            <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#productos" onclick="toggleMobileMenu()">Productos</a>
+            <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#productos" onclick="toggleMobileMenu()">Servicios</a>
             <!-- <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#blog" onclick="toggleMobileMenu()">Blog</a> -->
-             <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#opiniones" onclick="toggleMobileMenu()">Reseñas</a>
+            <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#opiniones" onclick="toggleMobileMenu()">Reseñas</a>
             <a class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-colors hover:bg-gray-50 dark:hover:bg-card-dark" href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
         </div>
     </div>
@@ -227,7 +222,7 @@
                     </p>
                     <div class="mt-8 flex justify-center lg:justify-start gap-4">
                         <a class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-bold rounded-full text-white bg-primary hover:bg-orange-600 md:py-4 md:text-lg md:px-10 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1" href="#productos">
-                            Ver Catálogo
+                            Nuestros Servicios
                         </a>
                         <a class="inline-flex items-center justify-center px-8 py-3 border-2 border-secondary dark:border-text-dark text-base font-bold rounded-full text-secondary dark:text-text-dark bg-transparent hover:bg-secondary hover:text-white dark:hover:bg-text-dark dark:hover:text-background-dark md:py-4 md:text-lg md:px-10 transition-all" href="#contacto">
                             Visitanos
@@ -250,28 +245,22 @@
     </section>
     <section class="py-20 bg-white dark:bg-card-dark transition-colors duration-300" id="nosotros">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto">
-                <h2 class="text-primary font-bold tracking-wide uppercase text-sm mb-2">Nuestra Misión</h2>
-                <h3 class="text-3xl font-display font-bold text-gray-900 dark:text-text-dark mb-6 transition-colors duration-300">Salud y Bienestar en Montecarlo</h3>
-                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">
-                    En <span class="font-bold text-primary">Nutriendo Market</span>, nos dedicamos a ofrecerte productos que mejoran tu calidad de vida. Desde suplementos naturales hasta opciones deliciosas para dietas especiales, nuestro objetivo es acompañarte en el camino hacia un estilo de vida más saludable. Creemos que comer bien es sentirse bien.
-                </p>
-                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="p-6 bg-background-light dark:bg-background-dark rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-transparent dark:border-border-dark">
-                        <span class="material-icons text-4xl text-accent mb-4">spa</span>
-                        <h4 class="font-bold text-lg mb-2 dark:text-text-dark transition-colors duration-300">100% Natural</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">Selección cuidadosa de productos libres de químicos.</p>
-                    </div>
-                    <div class="p-6 bg-background-light dark:bg-background-dark rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-transparent dark:border-border-dark">
-                        <span class="material-icons text-4xl text-accent mb-4">no_meals</span>
-                        <h4 class="font-bold text-lg mb-2 dark:text-text-dark transition-colors duration-300">Sin Gluten</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">Variedad de opciones seguras para celíacos.</p>
-                    </div>
-                    <div class="p-6 bg-background-light dark:bg-background-dark rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-transparent dark:border-border-dark">
-                        <span class="material-icons text-4xl text-accent mb-4">local_shipping</span>
-                        <h4 class="font-bold text-lg mb-2 dark:text-text-dark transition-colors duration-300">Envíos a Domicilio</h4>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">Te llevamos el bienestar a la puerta de tu casa.</p>
-                    </div>
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-primary font-bold tracking-wide uppercase text-sm mb-2">Sobre Nosotros</h2>
+                <h3 class="text-3xl font-display font-bold text-gray-900 dark:text-text-dark mb-8 transition-colors duration-300">Más que una Dietética</h3>
+                <div class="space-y-5 text-lg text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300 text-left">
+                    <p>
+                        <span class="font-bold text-primary">Nutriendo</span> es mucho más que una dietética. Es un espacio creado para acompañarte en el camino hacia una alimentación más consciente, saludable y natural.
+                    </p>
+                    <p>
+                        Elaboramos nuestras comidas de forma artesanal, con amor, dedicación y respeto por los alimentos. Utilizamos ingredientes de calidad, priorizando productores locales y siguiendo estrictos cuidados bromatológicos para garantizar la inocuidad y seguridad de cada producto.
+                    </p>
+                    <p>
+                        En Nutriendo también vas a encontrar una amplia variedad de alimentos saludables: frutos secos, semillas, productos sin gluten, suplementos naturales y muchos otros productos seleccionados para cuidar tu bienestar.
+                    </p>
+                    <p class="font-medium text-gray-900 dark:text-text-dark italic">
+                        Creemos que alimentarse bien es una forma de nutrir el cuerpo, la mente y la vida. 🌱
+                    </p>
                 </div>
             </div>
         </div>
@@ -280,146 +269,122 @@
         <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-primary/10 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-60 h-60 rounded-full bg-orange-200/20 dark:bg-orange-900/10 blur-3xl"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-        <div class="order-2 lg:order-1 flex flex-col justify-center">
-        <div class="inline-flex items-center space-x-2 mb-4">
-        <span class="h-px w-8 bg-primary"></span>
-        <span class="text-primary font-bold tracking-wider uppercase text-sm">Elaboración Propia</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl font-display font-black text-secondary dark:text-text-dark leading-tight mb-6">
-                            Pastas Caseras <br/>
-        <span class="text-primary relative inline-block">
-                                Nutriendo
-                                <svg class="absolute w-full h-3 -bottom-1 left-0 text-yellow-300/50 -z-10" preserveAspectRatio="none" viewBox="0 0 100 10"><path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="8"></path></svg>
-        </span>
-        </h2>
-        <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-                            Descubrí el sabor de lo auténtico. Nuestras pastas son elaboradas diariamente con ingredientes 100% naturales, sin aditivos ni conservantes. Una experiencia gourmet, saludable y hecha con amor.
-                        </p>
-        <div class="grid grid-cols-2 gap-4 mb-10">
-        <div class="bg-white/60 dark:bg-black/20 p-4 rounded-lg border border-orange-100 dark:border-gray-700">
-        <div class="flex items-center mb-2">
-        <span class="material-symbols-outlined text-primary mr-2">grain</span>
-        <span class="font-bold text-gray-900 dark:text-white">Integrales</span>
-        </div>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Fibra y energía natural</p>
-        </div>
-        <div class="bg-white/60 dark:bg-black/20 p-4 rounded-lg border border-orange-100 dark:border-gray-700">
-        <div class="flex items-center mb-2">
-        <span class="material-symbols-outlined text-primary mr-2">spa</span>
-        <span class="font-bold text-gray-900 dark:text-white">Sin Gluten</span>
-        </div>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Opciones aptas celíacos</p>
-        </div>
-        </div>
-        <div>
-        <a class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-bold rounded-full text-white bg-secondary dark:bg-primary hover:bg-gray-800 dark:hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1" href="https://wa.me/3751361030?text=Hola,%20quisiera%20encargar%20pastas%20caseras">
-                                Encargar Ahora
-                                <span class="material-icons ml-2 text-sm">restaurant</span>
-        </a>
-        </div>
-        </div>
-        <div class="order-1 lg:order-2 relative h-96 lg:h-[500px]">
-        <div class="absolute inset-0 z-10 transform translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8 rounded-2xl bg-orange-100 dark:bg-gray-800 w-full h-full"></div>
-        <div class="absolute inset-0 z-20 rounded-2xl overflow-hidden shadow-2xl">
-        <img alt="Fresh homemade pasta being prepared on a wooden table with flour" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeDLZx3aXoJ-2ZpZEURz9qAex95FqiVWEm7VYCANUQy2HOR3JeO5B0KpcEaAIvbNdKyZDj_ynm0jGSj1Kt_jW6y8dew_hCEqIpTI5wAJqwcWojnJ4S7pNhfqs4U77BvVRYdeUgmf_f3OWexb50IaBTkJiHnil3v2D5qC9oltqFuP4CS8s0Dvw6bvOVhchkEciXsDjpqC0GhPwRJGfcosF1862z4iY7OLv-dVSXpsCX25Er7mjSILIYZurcynJ2oZyFOTjuRBsU0aY"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-        </div>
-        <div class="absolute -bottom-6 -left-6 z-30 bg-white dark:bg-card-dark p-4 rounded-xl shadow-xl border-l-4 border-primary max-w-xs animate-float hidden sm:block">
-        <div class="flex items-center gap-3">
-        <div class="bg-orange-100 dark:bg-orange-900/30 p-2 rounded-full text-primary">
-        <span class="material-icons">verified</span>
-        </div>
-        <div>
-        <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-bold">Frescura Garantizada</p>
-        <p class="font-bold text-gray-900 dark:text-white">Hecho a mano hoy</p>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div class="order-2 lg:order-1 flex flex-col justify-center">
+                    <div class="inline-flex items-center space-x-2 mb-4">
+                        <span class="h-px w-8 bg-primary"></span>
+                        <span class="text-primary font-bold tracking-wider uppercase text-sm">Elaboración Propia</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-display font-black text-secondary dark:text-text-dark leading-tight mb-6">
+                        Pastas Caseras <br />
+                        <span class="text-primary relative inline-block">
+                            Nutriendo
+                            <svg class="absolute w-full h-3 -bottom-1 left-0 text-yellow-300/50 -z-10" preserveAspectRatio="none" viewBox="0 0 100 10"><path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="8"></path></svg>
+                        </span>
+                    </h2>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                        Descubrí el sabor de lo auténtico. Nuestras pastas son elaboradas diariamente con ingredientes 100% naturales, sin aditivos ni conservantes. Una experiencia gourmet, saludable y hecha con amor.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-10">
+                        <div class="bg-white/60 dark:bg-black/20 p-4 rounded-lg border border-orange-100 dark:border-gray-700">
+                            <div class="flex items-center mb-2">
+                                <span class="material-symbols-outlined text-primary mr-2">grain</span>
+                                <span class="font-bold text-gray-900 dark:text-white">Integrales</span>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Fibra y energía natural</p>
+                        </div>
+                        <div class="bg-white/60 dark:bg-black/20 p-4 rounded-lg border border-orange-100 dark:border-gray-700">
+                            <div class="flex items-center mb-2">
+                                <span class="material-symbols-outlined text-primary mr-2">spa</span>
+                                <span class="font-bold text-gray-900 dark:text-white">Sin Gluten</span>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Opciones aptas celíacos</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-bold rounded-full text-white bg-secondary dark:bg-primary hover:bg-gray-800 dark:hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1" href="https://wa.me/3751361030?text=Hola,%20quisiera%20encargar%20pastas%20caseras">
+                            Encargar Ahora
+                            <span class="material-icons ml-2 text-sm">restaurant</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 relative h-96 lg:h-[500px]">
+                    <div class="absolute inset-0 z-10 transform translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8 rounded-2xl bg-orange-100 dark:bg-gray-800 w-full h-full"></div>
+                    <div class="absolute inset-0 z-20 rounded-2xl overflow-hidden shadow-2xl" id="pasta-carousel">
+                        <!-- Slides: agregá o quitá divs .pasta-slide para cambiar la cantidad de imágenes -->
+                        <div class="pasta-slide absolute inset-0 opacity-100 transition-opacity duration-700">
+                            <img alt="Pasta casera Nutriendo 1" class="w-full h-full object-cover" src="Resources/img/Pastas 1.jpg" />
+                        </div>
+                        <div class="pasta-slide absolute inset-0 opacity-0 transition-opacity duration-700">
+                            <img alt="Pasta casera Nutriendo 2" class="w-full h-full object-cover" src="Resources/img/Pastas 2.jpg" />
+                        </div>
+                        <div class="pasta-slide absolute inset-0 opacity-0 transition-opacity duration-700">
+                            <img alt="Pasta casera Nutriendo 3" class="w-full h-full object-cover" src="Resources/img/Pastas 3.jpg" />
+                        </div>
+                        <div class="pasta-slide absolute inset-0 opacity-0 transition-opacity duration-700">
+                            <img alt="Pasta casera Nutriendo 4" class="w-full h-full object-cover" src="Resources/img/Pastas 4.jpg" />
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none"></div>
+                        <!-- Dots / Indicadores -->
+                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2" id="pasta-carousel-dots"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="py-20 bg-background-light dark:bg-background-dark transition-colors duration-300" id="productos">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-text-dark transition-colors duration-300">Productos Destacados</h2>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400 transition-colors duration-300">Lo mejor para tu nutrición diaria</p>
-                </div>
-                <a class="hidden sm:flex items-center text-primary font-bold hover:text-orange-600 transition-colors" href="#">
-                    Ver todo el catálogo <span class="material-icons ml-1 text-sm">arrow_forward</span>
-                </a>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-text-dark transition-colors duration-300">Nuestros Servicios</h2>
+                <p class="mt-2 text-gray-600 dark:text-gray-400 transition-colors duration-300">Lo que nos hace diferentes</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <div class="group bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark">
-                    <div class="relative h-64 overflow-hidden bg-gray-100">
-                        <img alt="Jar of organic coconut oil" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxSvOPfRiflJzKOjCS7vJz0l5sAHkhEHwRDChqQVKJSUa6oKYy9gpwLIEZRXTz0as9MmSI751PazYlGcnEQ8plj7l_PuaqLkLiWlRytcdW3bVQzWgCQfcL_fwne77KUH-oeDWX777yU57Dfnn3To6cdHDxB8z1JhkNWwvJj6Hne6tOtsOhMCtAELTbt4YxZ9Lkwj4BjKGjSKtgllqyiiRjInSWkFQDm18fVpmUHEZoOW0gBYHEmLI5pytc_CW2EkNHN-IDXjdoJPY" />
-                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">
-                            NUEVO
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark group">
+                    <div class="p-8 text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 bg-primary/10 dark:bg-primary/20 rounded-2xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                            <span class="material-icons text-3xl text-primary group-hover:text-white transition-colors duration-300">restaurant</span>
                         </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-text-dark mb-1 transition-colors duration-300">Aceite de Coco Virgen</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-300">Prensado en frío, 100% puro</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-primary font-bold">Consultar Precio</span>
-                            <button class="bg-gray-100 dark:bg-background-dark p-2 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary dark:text-gray-300 transition-colors">
-                                <span class="material-icons text-sm">add_shopping_cart</span>
-                            </button>
-                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-text-dark mb-3 transition-colors duration-300">Comida Saludable Todos los Días</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed transition-colors duration-300">Preparamos opciones frescas y nutritivas a diario para que puedas alimentarte bien sin complicaciones.</p>
                     </div>
                 </div>
-                <div class="group bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark">
-                    <div class="relative h-64 overflow-hidden bg-gray-100">
-                        <img alt="Stack of protein pancakes with syrup" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ-O_bDtnik7Vrq7D7_20_zpj-287lfQ0TciwrpT_ogCgiQgvI-R8hfjNXmhxJYoTX8XdiDVmRAFLw62BnSvOyhls3KygN_PFUjDM0-4EIVseVHk9YMLEOa5M32jvYVBxScbioCNMmKy24ebZEg0pT2ViYc3Qfk43fjL_Y1aTwDvk5pjx672WYJCvfEU_A08Ufxhotpncb5BrWgAyxJu9y12z37RhaHp-9kSKFg2w1KbTh_84aiz0HxARfQDO4wu-NDODYATwmsRo" />
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-text-dark mb-1 transition-colors duration-300">Pancakes Proteicos</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-300">Mezcla lista, alto en proteína</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-primary font-bold">Consultar Precio</span>
-                            <button class="bg-gray-100 dark:bg-background-dark p-2 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary dark:text-gray-300 transition-colors">
-                                <span class="material-icons text-sm">add_shopping_cart</span>
-                            </button>
+                <!-- Servicio 2 -->
+                <div class="bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark group">
+                    <div class="p-8 text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 bg-accent/10 dark:bg-accent/20 rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                            <span class="material-icons text-3xl text-accent group-hover:text-white transition-colors duration-300">spa</span>
                         </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-text-dark mb-3 transition-colors duration-300">Productos Naturales y Saludables</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed transition-colors duration-300">Amplia variedad de productos naturales, orgánicos, sin gluten y aptos para dietas especiales.</p>
                     </div>
                 </div>
-                <div class="group bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark">
-                    <div class="relative h-64 overflow-hidden bg-gray-100">
-                        <img alt="Roasted almonds in a bowl" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDAfxXnT9mnYse9d9VG9CKWc03InGz5ymohW_80byFfolRCusW_UiU2LQby_hC9Plphj5v3XABI7WZ5mtekIWDahNUDGARqTcBttJg_mLj2eB7ONpVr6T9FODMUvFqrgDz-FXb5k5JXbLAbCkZNDU27S1zNnqsKcLA2g7NdiLSC9t7xT4D4YfMjminH65zgS6pv6dwz7z4zVzwPFY34ZqlFqehbvObKnTOqzRyywulAwxk9YZt-_pEWfCy2jgVKIs22AtPtK3hkAA" />
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-text-dark mb-1 transition-colors duration-300">Almendras Naturales</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-300">Fuente de energía y fibra</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-primary font-bold">Consultar Precio</span>
-                            <button class="bg-gray-100 dark:bg-background-dark p-2 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary dark:text-gray-300 transition-colors">
-                                <span class="material-icons text-sm">add_shopping_cart</span>
-                            </button>
+                <!-- Servicio 3 -->
+                <div class="bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark group">
+                    <div class="p-8 text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 bg-orange-100 dark:bg-orange-900/20 rounded-2xl flex items-center justify-center group-hover:bg-secondary dark:group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                            <span class="material-icons text-3xl text-secondary dark:text-primary group-hover:text-white transition-colors duration-300">storefront</span>
                         </div>
-                    </div>
-                </div>
-                <div class="group bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark">
-                    <div class="relative h-64 overflow-hidden bg-gray-100">
-                        <img alt="Jar of peanut butter" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT9qP7P_Gj2RrJfRIWqb6a6kLPTcH__wrooCGKVk-9pMoxZCvLtd8QrSLAWktflH5RWK8l1d9ZI2c3XNK-EEuCCNryu3eWlp2XxJWkRgRwFehXWRurtkGLsYE4ruZtM8QHWsxvjVhYeIbSY1K0B5qHSLzk5yqAUd2xqewbFyfr_U23J_wbkf4iwvFFVeoypMz1YaDrsVezbZBnzAPXq8EWbmExcIhSRSAalmN6SsL8KIbmelSwOorteKvkT0F5P57d-GJOhoZ1sPU" />
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-text-dark mb-1 transition-colors duration-300">Pasta de Maní</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-300">Sin azúcar agregada</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-primary font-bold">Consultar Precio</span>
-                            <button class="bg-gray-100 dark:bg-background-dark p-2 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary dark:text-gray-300 transition-colors">
-                                <span class="material-icons text-sm">add_shopping_cart</span>
-                            </button>
-                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-text-dark mb-3 transition-colors duration-300">Producimos Alimentos</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 transition-colors duration-300">Elaboramos nuestros propios productos. ¿Tenés un local? Consultá para ser punto de venta de Nutriendo.</p>
+                        <a class="inline-flex items-center text-primary font-bold text-sm hover:text-orange-600 transition-colors" href="https://wa.me/3751361030?text=Hola,%20me%20interesa%20ser%20punto%20de%20venta%20de%20Nutriendo" target="_blank" rel="noopener noreferrer">
+                            Consultar <span class="material-icons ml-1 text-sm">arrow_forward</span>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="mt-12 text-center sm:hidden">
-                <a class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-full text-gray-700 dark:text-white bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
-                    Ver catálogo completo
-                </a>
+            <div class="mt-10 flex justify-center">
+                <div class="inline-flex items-center gap-3 bg-background-light dark:bg-background-dark px-6 py-4 rounded-xl border border-gray-100 dark:border-border-dark shadow-sm">
+                    <span class="material-icons text-2xl text-primary">local_shipping</span>
+                    <div class="text-left">
+                        <p class="font-bold text-m text-gray-900 dark:text-text-dark transition-colors duration-300">Envíos a Domicilio</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">Te llevamos el bienestar a la puerta de tu casa</p>
+                    </div>
+                </div>
+            </div>            
+            <!-- Nota sobre catálogo futuro -->
+            <div class="mt-12 text-center">
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3 transition-colors duration-300">Próximamente podrás explorar nuestro catálogo completo de productos desde acá.</p>
             </div>
         </div>
     </section>
@@ -586,7 +551,7 @@
                 <p class="text-gray-600 dark:text-gray-400 transition-colors duration-300">Encontrá tambien nuestras pastas en los siguientes locales</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark">
+                <div class="bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark flex flex-col">
                     <div class="bg-[url('https://lh3.googleusercontent.com/gg/AMW1TPrK36mr-TiiQ933CiVn7-YrPPu3wdj8NZ6EosoGBp4V1gYrcpQb-6I8P4F8nGlAcDGLVvo_cprlX5htaax8dEuO-AEEGV2Teo6jLN9xs-L7hYCdaB1p7vgTxpnpYw6WzUOXOOkOVB5Te3Y5ouDJJoE9khezi__pyoGCYyKsPhsxVW5BxBa7=s1600-rj-mp2')] bg-cover bg-center p-6 text-white relative">
                         <div class="absolute inset-0 bg-black/40"></div>
                         <div class="relative">
@@ -595,7 +560,7 @@
                             <p class="text-sm opacity-90">Punto de venta autorizado</p>
                         </div>
                     </div>
-                    <div class="p-6 space-y-5">
+                    <div class="p-6 gap-5 flex flex-col flex-1">
                         <div class="flex items-start gap-3">
                             <span class="material-icons text-accent mt-1 flex-shrink-0">location_on</span>
                             <div>
@@ -614,13 +579,13 @@
                                 <p class="text-gray-600 dark:text-gray-400 transition-colors duration-300 text-sm mt-1">Domingo: 08:00 - 13:00 hs</p>
                             </div>
                         </div>
-                        <a class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center transition-colors text-sm gap-2" href="https://maps.app.goo.gl/WKiHBwpF5WJuXAZo7" target="_blank" rel="noopener noreferrer">
+                        <a class="mt-auto w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center transition-colors text-sm gap-2" href="https://maps.app.goo.gl/WKiHBwpF5WJuXAZo7" target="_blank" rel="noopener noreferrer">
                             <span class="material-icons text-sm">map</span>
                             Ver en Google Maps
                         </a>
                     </div>
                 </div>
-                <div class="bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark">
+                <div class="bg-white dark:bg-card-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 dark:border-border-dark flex flex-col">
                     <div class="bg-[url('https://lh3.googleusercontent.com/p/AF1QipNmqR8z7N6Hg5TXeFQPNHrFQozrv_QB4e41GpIB=s3072-v1')] bg-cover bg-center p-6 text-white relative">
                         <div class="absolute inset-0 bg-black/40"></div>
                         <div class="relative">
@@ -629,7 +594,7 @@
                             <p class="text-sm opacity-90">Punto de venta autorizado</p>
                         </div>
                     </div>
-                    <div class="p-6 space-y-5">
+                    <div class="p-6 gap-5 flex flex-col flex-1">
                         <div class="flex items-start gap-3">
                             <span class="material-icons text-purple-500 mt-1 flex-shrink-0">location_on</span>
                             <div>
@@ -656,7 +621,7 @@
                                 <a class="text-gray-600 dark:text-gray-400 transition-colors flex items-center gap-1 text-sm" href="https://wa.link/v6xckk" target="_blank" rel="noopener noreferrer">Teléfono: 3751 36-6925</a>
                             </div>
                         </div>
-                        <a class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center transition-colors text-sm gap-2" href="https://maps.app.goo.gl/wmoNCfQSHYJCwiJQ9" target="_blank" rel="noopener noreferrer">
+                        <a class="mt-auto w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center transition-colors text-sm gap-2" href="https://maps.app.goo.gl/wmoNCfQSHYJCwiJQ9" target="_blank" rel="noopener noreferrer">
                             <span class="material-icons text-sm">map</span>
                             Ver en Google Maps
                         </a>
@@ -678,7 +643,7 @@
                     <h4 class="font-bold text-lg mb-4">Enlaces Rápidos</h4>
                     <ul class="space-y-2 text-sm text-gray-400">
                         <li><a class="hover:text-white transition-colors" href="#inicio">Inicio</a></li>
-                        <li><a class="hover:text-white transition-colors" href="#productos">Catálogo</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#productos">Servicios</a></li>
                         <!-- <li><a class="hover:text-white transition-colors" href="#blog">Blog Saludable</a></li> -->
                         <li><a class="hover:text-white transition-colors" href="#contacto">Contacto</a></li>
                     </ul>
@@ -702,5 +667,6 @@
             </div>
         </div>
     </footer>
+    <script src="main.js"></script>
 </body>
 </html>
